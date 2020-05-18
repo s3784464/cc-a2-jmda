@@ -2,6 +2,7 @@
 from pprint import pprint as pp
 from flask import Flask, flash, redirect, render_template, request, url_for
 from weather import query_api
+import json
 app = Flask(__name__)
 @app.route('/')
 def index():
@@ -18,13 +19,14 @@ def result():
     select = request.form.get('comp_select')
     resp = query_api(select)
     pp(resp)
-    if resp:
-       data.append(resp)
+    if resp is not None:
+       data = resp
     if len(data) != 2:
         error = 'Bad Response from Weather API'
     return render_template(
         'result.html',
-        data=data,
+        name='TestName',
+        fc=data,
         error=error)
 if __name__=='__main__':
     app.run(debug=True) 
