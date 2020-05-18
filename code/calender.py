@@ -9,6 +9,32 @@ from google.auth.transport.requests import Request
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
+class Event:
+    def __init__(self, name, date, time, city, state, isoCountry):
+        self.name = name
+        self.date = date
+        self.time = time
+        self.city = city
+        self.state = state
+        self.country = isoCountry
+
+    def getName(self):
+        return self.name
+    
+    def getDate(self):
+        return self.date
+    
+    def getTime(self):
+        return self.time
+
+    def getCity(self):
+        return self.city
+
+    def getState(self):
+        return self.state    
+
+    def getCountry(self):
+        return self.country
 
 def getEvents():
     """
@@ -62,7 +88,6 @@ def getEvents():
         
         #isolating country from location
         country = locationSplit[1]
-        isoCountry = getISO3166(country)
         
         #seperating city and state strings
         city = cityAndState[0]
@@ -73,11 +98,13 @@ def getEvents():
 
         #String with 24 hour time in HH:MM format with "Australia/Melbourne" as TimeZone
         time = startDateTime[11:16:1]
+
+        event = Event(eventName, date, time, city, state, getISO3166(country))
         
         #Prints event details
-        print("Event: " + eventName + "\n"
-            + "Date: " + date + " at " + time + "\n"
-            + "Location: " + city + ", " + state +  ", " + isoCountry + "\n")
+        print("Event: " + event.getName() + "\n"
+            + "Date: " + event.getDate() + " at " + event.getTime() + "\n"
+            + "Location: " + event.getCity() + ", " + event.getState() +  ", " + event.getCountry() + "\n")
 
 #TODO
 #Add more country cases for getISO3166()
@@ -98,5 +125,9 @@ def getISO3166(country):
 
     return isoCountry
 
+def getEventName():
+    return 
+
 if __name__ == '__main__':
     getEvents()
+
