@@ -14,35 +14,23 @@ header div{
     text-align: center;
     font-weight: bold;
     font-size: 25px;
-    outline: 2px solid rgb(0, 0, 0);
+    outline: 1px solid rgb(90, 89, 89);
     padding: 25px;
     margin-bottom: 20px;
 }
 
 .event{
-    outline: 2px dashed rgb(15, 85, 190);
+    outline: 1px solid rgb(177, 177, 177);
     padding: 12px;
     margin-top: 10px;
 }
 
-h4{
-    padding: 5px;
-    margin: 0;
-    color: blue;
-}
-
-h5{
-    padding: 5px;
-    margin: 0;
-    color: blue;
-    font-size: 20px;
-}
 div.description{
     padding: 5px;
 }
 
 .left{
-    color: green;
+    color: rgb(0, 0, 0);
     float:left;
     width: 10%;
 }
