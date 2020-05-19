@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return render_template(
         'weather.html',
-        data=[{'name':'Toronto'}, {'name':'Montreal'}, {'name':'Calgary'},
+        data=[{'name':'Melbourne','coord':'lat=37.8136&lon=144.9631'}, {'name':'Montreal'}, {'name':'Calgary'},
         {'name':'Ottawa'}, {'name':'Edmonton'}, {'name':'Mississauga'},
         {'name':'Winnipeg'}, {'name':'Vancouver'}, {'name':'Brampton'}, 
         {'name':'Quebec'}])
