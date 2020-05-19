@@ -79,9 +79,9 @@ class Calender:
 
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events:\n')
+        print('Getting the upcoming 7 events:\n')
         events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
+                                              maxResults=7, singleEvents=True,
                                               timeZone="Australia/Melbourne",
                                               orderBy='startTime').execute()
         events = events_result.get('items', [])
@@ -96,7 +96,7 @@ class Calender:
             # String containing the date
             startDateTime = event["start"]["dateTime"]
 
-            # String containting event name
+            # String containing event name
             eventName = event["summary"]
 
             # String containing location City State, Country
@@ -140,7 +140,7 @@ class Calender:
         dsEvent['state'] = eventObject.getState()
         dsEvent['country'] = eventObject.getCountry()
 
-        # store the event entity
+        #add the event entity to the datastore
         self.client.put(dsEvent)
 
     # Returns country in ISO3166 format
