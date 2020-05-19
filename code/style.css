@@ -1,0 +1,57 @@
+html{
+    background-color: grey;
+}
+body{
+    font-size: 20px;
+    background-color: white;
+}
+
+h2{
+    margin-left: 10px;
+}
+
+header div{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    outline: 2px  rgb(0, 0, 0);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.event{
+    outline: 2px dashed rgb(15, 85, 190);
+    padding: 12px;
+    margin-top: 10px;
+}
+
+h4{
+    padding: 5px;
+    margin: 0;
+    color: blue;
+}
+
+h5{
+    padding: 5px;
+    margin: 0;
+    color: blue;
+    font-size: 20px;
+}
+div.description{
+    padding: 5px;
+}
+
+.left{
+    color: green;
+    float:left;
+    width: 10%;
+}
+.right{
+    float: right;
+    width: 90%;
+}
+.event:after{
+  content: "";
+  display: table;
+  clear: both;
+}
