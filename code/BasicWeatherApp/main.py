@@ -17,7 +17,7 @@ def result():
     data = []
     error = None
     select = request.form.get('comp_select')
-    resp = query_api(select)
+    resp = query_api('Brisbane')
     pp(resp)
     if resp is not None:
        data = resp
