@@ -14,8 +14,8 @@ header div{
     text-align: center;
     font-weight: bold;
     font-size: 25px;
-    outline: 2px  rgb(0, 0, 0);
-    padding: 30px;
+    outline: 2px solid rgb(0, 0, 0);
+    padding: 25px;
     margin-bottom: 20px;
 }
 
