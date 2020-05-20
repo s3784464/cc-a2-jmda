@@ -160,8 +160,3 @@ class Calender:
         # TODO
         # Add more country cases for getISO3166()
         return isoCountry
-
-
-if __name__ == '__main__':
-    c = Calender()
-    c.buildEvents()

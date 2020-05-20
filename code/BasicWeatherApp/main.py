@@ -3,9 +3,12 @@ from pprint import pprint as pp
 from flask import Flask, flash, redirect, render_template, request, url_for
 from weather import query_api
 import json
+import calender
 app = Flask(__name__)
 @app.route('/')
 def index():
+    #cal = Calender()
+    #cal.buildEvents()
     return render_template(
         'weather.html',
         data=[{'name':'Melbourne','coord':'lat=37.8136&lon=144.9631'}, {'name':'Montreal'}, {'name':'Calgary'},
