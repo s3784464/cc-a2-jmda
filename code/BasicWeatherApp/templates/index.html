@@ -3,7 +3,7 @@
 
 <head>
     <title>Cloud Comp A2</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 
@@ -18,21 +18,32 @@
     <h2>Upcoming Events: </h2>
     <!-- for every event, print: -->
     <div class="event">
+        {% for e in events %}
         <div class="left">
             Date:
-            <!-- event.getDate() --> <br>
+            {{ e.getDate() }}
+            <br>
             Weather:
-            <!-- weather --> °C
+            Day {{ weathers[0]['daily'][e.getDay()]['temp']['day'] }} °C
+            <br>
         </div>
 
         <div class="right">
+                
+             
             Event:
-            <!-- event.getName() --><br>
+            {{ e.getName() }}
+            <br>
             Time:
-            <!-- event.getTime() --><br>
+            {{ e.getTime() }}
+            <br>
             Location:
-            <!-- event.getCity(), event.getState(), event.getCountry()-->
+            {{e.getCity()}}, {{e.getState()}}, {{e.getCountry()}}
+            <br>
+            
+            
         </div>
+        {% endfor %}
     </div>
 </body>
 

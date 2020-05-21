@@ -29,6 +29,13 @@ class Event:
     def getDate(self):
         return self.date
 
+    def getDay(self):
+        today = datetime.date.today()
+        #future = datetime.datetime.strptime(self.date, "%Y-%m-%d").date()
+        future = datetime.date.today() + datetime.timedelta(days=1)
+        delta =  (today - future).days
+        return delta
+
     def getTime(self):
         return self.time
 
@@ -91,6 +98,7 @@ class Calender:
 
         eventNo = 0
         entityName = "event"
+        arr = []
         for event in events:
             eventNo = eventNo + 1
             # String containing the date
@@ -124,6 +132,8 @@ class Calender:
             event = Event(eventName, date, time, city,
                           state, self.getISO3166(country))
 
+            arr.append(event)
+
             # create datastore entity
             name = entityName + str(eventNo)
             event_key = self.client.key('event', name)
@@ -131,6 +141,7 @@ class Calender:
             self.addToDatastore(dsEvent, event)
 
             event.print()
+        return arr
 
     def addToDatastore(self, dsEvent, eventObject):
         dsEvent['name'] = eventObject.getName()
