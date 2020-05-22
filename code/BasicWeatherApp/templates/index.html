@@ -17,34 +17,27 @@
     </header>
     <h2>Upcoming Events: </h2>
     <!-- for every event, print: -->
-    <div class="event">
+    
+    <div class="events">
         {% for e in events %}
+        <div class="event">
         <div class="left">
-            Date:
-            {{ e.getDate() }}
+            <div class="date">{{ e.getDate() }}</div>
             <br>
-            Weather:
-            Day {{ weathers[0]['daily'][e.getDay()]['temp']['day'] }} °C
-            <br>
+            <div class="temperature">{{ weathers[0]['daily'][e.getDay()]['temp']['day'] }} °K</div>
         </div>
 
         <div class="right">
-                
-             
-            Event:
-            {{ e.getName() }}
-            <br>
-            Time:
-            {{ e.getTime() }}
-            <br>
-            Location:
-            {{e.getCity()}}, {{e.getState()}}, {{e.getCountry()}}
-            <br>
+            <div class="name">{{ e.getName() }}</div>
+            <div class="time">{{ e.getTime() }}</div>
+            <div class="location">{{e.getCity()}}, {{e.getState()}}, {{e.getCountry()}}</div>
             
             
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
+    
+</div>
 </body>
 
 </html>

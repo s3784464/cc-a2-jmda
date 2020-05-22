@@ -7,7 +7,11 @@ body{
 }
 
 h2{
-    margin-left: 10px;
+    margin: 0 0 8px 8px;
+}
+
+div{
+    display: table;
 }
 
 header div{
@@ -18,11 +22,18 @@ header div{
     padding: 25px;
     margin-bottom: 20px;
 }
+.temperature{
+    margin-top: 3px;
+}
 
 .event{
-    outline: 1px solid rgb(177, 177, 177);
-    padding: 12px;
-    margin-top: 10px;
+    outline: 2px solid rgb(107, 107, 107);
+    padding: 9px;
+    width: auto;
+}
+
+.events{
+    color: rgb(194, 193, 193);
 }
 
 div.description{
@@ -33,6 +44,7 @@ div.description{
     color: rgb(0, 0, 0);
     float:left;
     width: 10%;
+    font-size: 30px;
 }
 .right{
     float: right;
