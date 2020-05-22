@@ -27,13 +27,13 @@ header div{
 }
 
 .event{
-    outline: 2px solid rgb(107, 107, 107);
+    outline: 2px solid rgb(90, 90, 90);
     padding: 9px;
     width: auto;
 }
 
-.events{
-    color: rgb(194, 193, 193);
+.event:hover{
+    color: rgb(184, 184, 184);
 }
 
 div.description{
