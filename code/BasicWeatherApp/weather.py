@@ -16,13 +16,10 @@ def query_api(event):
     try:
         #print(API_URL.format(city, API_KEY))
         loc = event.getCity()# + "," + event.getState() + "," + event.getCountry()
-        print("this is the loc: " + loc)
         coord = requests.get(GEO_URL.format(GEO_KEY, loc)).json()
         lat = coord['items'][0]['position']['lat']
         lon = coord['items'][0]['position']['lng']
-        print(lat)
         data = requests.get(API_URL.format(lat, lon, API_KEY)).json()
-        print(data['timezone'])
     except Exception as exc:
         print(exc)
         data = None
