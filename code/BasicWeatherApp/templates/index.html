@@ -21,15 +21,14 @@
         <div class="event">
             <div class="left">
                 <div class="date">{{ e.getDate() }}</div>
-                <br>
                 <div class="temperature">{{ weathers[0]['daily'][e.getDay()]['temp']['day'] }} °K</div>
             </div>
 
             <div class="right">
-                <div class="name">{{ e.getName() }}</div>
+                <div class="name"><b>{{ e.getName() }}</b></div>
                 <div class="time">{{ times[0] }} &nbsp;&nbsp;&nbsp;&nbsp; <a
                         href='https://us-central1-cc-s3784464-a2.cloudfunctions.net/to12Hour?time={{ e.getTime() }}'
-                        target="_blank">Convert to AM/PM</a></div>
+                        target="_blank">AM/PM Cloud Function</a></div>
 
                 <script>
                     function httpGet(theUrl) {

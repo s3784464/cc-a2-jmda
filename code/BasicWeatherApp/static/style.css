@@ -10,10 +10,6 @@ h2{
     margin: 0 0 8px 8px;
 }
 
-div{
-    display: table;
-}
-
 header div{
     text-align: center;
     font-weight: bold;
@@ -22,6 +18,7 @@ header div{
     padding: 25px;
     margin-bottom: 20px;
 }
+
 .temperature{
     margin-top: 3px;
 }
@@ -33,7 +30,7 @@ header div{
 }
 
 .event:hover{
-    color: rgb(184, 184, 184);
+    background-color: rgb(184, 184, 184);
 }
 
 div.description{
@@ -43,13 +40,15 @@ div.description{
 .left{
     color: rgb(0, 0, 0);
     float:left;
-    width: 10%;
+    width: 15%;
     font-size: 30px;
+    margin-right: 25px;
 }
+
 .right{
-    float: right;
-    width: 90%;
+    font-size: 20px;
 }
+
 .event:after{
   content: "";
   display: table;

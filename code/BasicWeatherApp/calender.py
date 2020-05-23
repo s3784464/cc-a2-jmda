@@ -9,6 +9,7 @@ from google.auth.transport.requests import Request
 
 # Google Cloud Datastore
 from google.cloud import datastore
+from google.cloud import storage
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -56,8 +57,11 @@ class Event:
 
 
 class Calender:
-    client = datastore.Client.from_service_account_json(
-        'cc-s3784464-a2-4896da251496.json')
+    #Google Datastore Client
+    client = datastore.Client.from_service_account_json("cc-s3784464-a2-4896da251496.json")
+
+    #Google Storage Client
+    storage_client = storage.Client.from_service_account_json("cc-s3784464-a2-4896da251496.json")
 
     def buildEvents(self):
         """
@@ -76,7 +80,7 @@ class Calender:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', SCOPES)
+                    'cc-s3784464-a2-4896da251496.json', SCOPES)
                 creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
             with open('token.pickle', 'wb') as token:
@@ -141,6 +145,9 @@ class Calender:
             self.addToDatastore(dsEvent, event)
 
             event.print()
+            self.createTxt(eventNo, event)
+            self.upload_blob(eventNo)
+        #self.upload_blob(1)
         return arr
 
     def addToDatastore(self, dsEvent, eventObject):
@@ -171,3 +178,27 @@ class Calender:
         # TODO
         # Add more country cases for getISO3166()
         return isoCountry
+
+    def createTxt(self, eventNo, event):
+        try:
+            file = open("event" + str(eventNo)+ ".txt", 'x')
+        except:
+            file = open("event" + str(eventNo)+ ".txt", 'w')
+
+        # name|date|time|city|state|country
+        file.write(event.getName()  + '|'
+            + event.getDate()       + '|'
+            + event.getTime()       + '|'
+            + event.getCity()       + '|'
+            + event.getState()      + '|'
+            + event.getCountry()    + '|'
+        )
+        file.close()
+
+    def upload_blob(self, eventNo):
+        bucket = self.storage_client.get_bucket("cca2-events")
+        blob = bucket.blob("events/event" + str(eventNo) + ".txt")
+
+        blob.upload_from_filename("event" + str(eventNo) + ".txt")
+
+        print("File event" + str(eventNo) + ".txt uploaded to cca2-events")
