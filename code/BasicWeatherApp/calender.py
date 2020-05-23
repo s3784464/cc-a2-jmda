@@ -180,10 +180,7 @@ class Calender:
         return isoCountry
 
     def createTxt(self, eventNo, event):
-        try:
-            file = open("event" + str(eventNo)+ ".txt", 'x')
-        except:
-            file = open("event" + str(eventNo)+ ".txt", 'w')
+        file = open("/tmp/event" + str(eventNo)+ ".txt", 'w')
 
         # name|date|time|city|state|country
         file.write(event.getName()  + '|'
@@ -199,6 +196,6 @@ class Calender:
         bucket = self.storage_client.get_bucket("cca2-events")
         blob = bucket.blob("events/event" + str(eventNo) + ".txt")
 
-        blob.upload_from_filename("event" + str(eventNo) + ".txt")
+        blob.upload_from_filename("/tmp/event" + str(eventNo) + ".txt")
 
         print("File event" + str(eventNo) + ".txt uploaded to cca2-events")
