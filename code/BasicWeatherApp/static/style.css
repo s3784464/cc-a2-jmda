@@ -27,10 +27,12 @@ header div{
     outline: 2px solid rgb(90, 90, 90);
     padding: 9px;
     width: auto;
+    margin-bottom: 8px;
+    background-color: white;
 }
 
 .event:hover{
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(221, 221, 221);
 }
 
 div.description{
@@ -53,4 +55,9 @@ div.description{
   content: "";
   display: table;
   clear: both;
+}
+
+.events{
+  background-color: grey;
+  margin-top: 10px;
 }
