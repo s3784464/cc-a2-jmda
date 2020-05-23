@@ -27,6 +27,7 @@ def query_api(event):
 
 
 def improve_weather_prediction(actual):
+    requests.get('https://us-central1-cc-s3784464-a2.cloudfunctions.net/ImproveWeatherForecast')
     average = 20
     predicted = ((average + actual) / 2) * 0.01 + 0.99 * actual
     average = (average + predicted) / 2
