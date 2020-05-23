@@ -24,3 +24,10 @@ def query_api(event):
         print(exc)
         data = None
     return data 
+
+
+def improve_weather_prediction(actual):
+    average = 20
+    predicted = ((average + actual) / 2) * 0.01 + 0.99 * actual
+    average = (average + predicted) / 2
+    return predicted

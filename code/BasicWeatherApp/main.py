@@ -2,6 +2,7 @@
 from pprint import pprint as pp
 from flask import Flask, flash, redirect, render_template, request, url_for
 from weather import query_api
+from weather import improve_weather_prediction
 import json
 import requests
 from calender import Calender
@@ -10,7 +11,6 @@ app = Flask(__name__)
 events = None
 
 TO12_URL = ('https://us-central1-cc-s3784464-a2.cloudfunctions.net/to12Hour?time={}')
-
 
 def to12Hour(request):
     suffix = "AM"
@@ -29,6 +29,7 @@ def index():
     cal = Calender()
     events = cal.buildEvents()
     weathers = []
+    improve_weather_prediction(25)
     new_times = []
     for e in events:
         weathers.append(query_api(e))
