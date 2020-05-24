@@ -145,8 +145,8 @@ class Calender:
             self.addToDatastore(dsEvent, event)
 
             event.print()
-            #self.createTxt(eventNo, event)
-            #self.upload_blob(eventNo)
+            self.createTxt(eventNo, event)
+            self.upload_blob(eventNo)
         #self.upload_blob(1)
         return arr
 
