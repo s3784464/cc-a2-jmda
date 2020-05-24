@@ -21,7 +21,7 @@
         <div class="event">
             <div class="left">
                 <div class="date">{{ events[x].getDate() }}</div>
-                <div class="temperature">{{ weathers[x]['daily'][events[x].getDay()]['temp']['day'] - 273.15 }} °C</div>
+                <div class="temperature">{{ (weathers[x]['daily'][events[x].getDay()]['temp']['day'] - 273.15)|round(1) }} °C</div>
             </div>
 
             <div class="right">
