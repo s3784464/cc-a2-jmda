@@ -17,17 +17,17 @@
     <!-- for every event, print: -->
 
     <div class="events">
-        {% for e in events %}
+        {% for x in range(3) %}
         <div class="event">
             <div class="left">
-                <div class="date">{{ e.getDate() }}</div>
-                <div class="temperature">{{ weathers[0]['daily'][e.getDay()]['temp']['day'] }} °K</div>
+                <div class="date">{{ events[x].getDate() }}</div>
+                <div class="temperature">{{ weathers[x]['daily'][events[x].getDay()]['temp']['day'] - 273.15 }} °C</div>
             </div>
 
             <div class="right">
-                <div class="name"><b>{{ e.getName() }}</b></div>
-                <div class="time">{{ times[0] }} &nbsp;&nbsp;&nbsp;&nbsp; <a
-                        href='https://us-central1-cc-s3784464-a2.cloudfunctions.net/to12Hour?time={{ e.getTime() }}'
+                <div class="name"><b>{{ events[x].getName() }}</b></div>
+                <div class="time">{{ times[x] }} &nbsp;&nbsp;&nbsp;&nbsp; <a
+                        href='https://us-central1-cc-s3784464-a2.cloudfunctions.net/to12Hour?time={{ events[x].getTime() }}'
                         target="_blank">AM/PM Cloud Function</a></div>
 
                 <script>
@@ -57,7 +57,7 @@
                 //onclick = 'createDiv(httpGet("https://us-central1-cc-s3784464-a2.cloudfunctions.net/to12Hour?time=14:00"))'
                 </script>
 
-                <div class="location">{{e.getCity()}}, {{e.getState()}}, {{e.getCountry()}}</div>
+                <div class="location">{{events[x].getCity()}}, {{events[x].getState()}}, {{events[x].getCountry()}}</div>
             </div>
         </div>
         {% endfor %}
